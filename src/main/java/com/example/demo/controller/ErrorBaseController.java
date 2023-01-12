@@ -11,7 +11,7 @@ public class ErrorBaseController implements ErrorController {
 	private String onError() {
 		return "error";
 	}
-
+	
 	public String getErrorPath() {
 		return "/error";
 	}

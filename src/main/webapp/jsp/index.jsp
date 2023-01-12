@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>hola mundo</h1>
-	<form:form action="addStudentForm" method="post" modelAttribute="student">
+	<form:form action="addStudentForm" method="post" modelAttribute="estudiante">
 		<span>Nombre:</span>
 		<form:input path="name" type="text" name="name"/>
 		<span>Apellidos:</span>

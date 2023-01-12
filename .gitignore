@@ -34,3 +34,4 @@ build/
 
 logs
 .mvn/wrapper
+/.apt_generated_tests/
