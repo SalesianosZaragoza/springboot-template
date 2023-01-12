@@ -17,11 +17,14 @@ public class IndexController {
 	
 	Logger l = org.apache.logging.log4j.LogManager.getLogger();
 
+	public ServiceUser serviceuser;
+
 	public ServiceStudent serviceStudent;
 
 	@Autowired
-	public IndexController(ServiceStudent serviceStudent) {
+	public IndexController(ServiceStudent serviceStudent, ServiceUser serviceuser) {
 		this.serviceStudent = serviceStudent;
+		this.serviceuser = serviceuser;
 	}
 
 	@GetMapping("/")
@@ -32,7 +35,7 @@ public class IndexController {
 	}
 
 	@PostMapping("addStudentForm")
-	private String logStudentInfoAndSendToEndPage(@ModelAttribute("estudiante") Student student) {
+	public String logStudentInfoAndSendToEndPage(@ModelAttribute("estudiante") Student student) {
 		serviceStudent.guardar(student);
 		l.info(student.toString());
 		return "end";
