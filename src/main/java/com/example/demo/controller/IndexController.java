@@ -30,7 +30,9 @@ public class IndexController {
 	@GetMapping("/")
 	public ModelAndView goToIndexPage() {
 		ModelAndView modelAndView = new ModelAndView("index");
-		modelAndView.addObject("estudiante", new Student());
+		Student student = new Student();
+		student.setName("hola");
+		modelAndView.addObject("estudiante", student);
 		return modelAndView;
 	}
 
