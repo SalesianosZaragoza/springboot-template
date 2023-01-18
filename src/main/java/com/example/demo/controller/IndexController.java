@@ -37,10 +37,12 @@ public class IndexController {
 	}
 
 	@PostMapping("addStudentForm")
-	public String logStudentInfoAndSendToEndPage(@ModelAttribute("estudiante") Student student) {
+	public ModelAndView logStudentInfoAndSendToEndPage(@ModelAttribute("estudiante") Student student) {
 		serviceStudent.guardar(student);
 		l.info(student.toString());
-		return "end";
+		ModelAndView m = new ModelAndView("end");
+		m.addObject("student", student);
+		return m;
 	}
 
 }
