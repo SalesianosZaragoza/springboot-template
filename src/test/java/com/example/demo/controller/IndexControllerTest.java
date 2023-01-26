@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Map;
@@ -42,7 +43,8 @@ class IndexControllerTest {
 		student.setName("gorka");
 		student.setSurname("sanz");
 
-		assertEquals("end", indexController.logStudentInfoAndSendToEndPage(student));
+		assertSame(student, indexController.logStudentInfoAndSendToEndPage(student).getModel().get("student"));
+		assertEquals("end", indexController.logStudentInfoAndSendToEndPage(student).getViewName());
 	}
 	
 	
