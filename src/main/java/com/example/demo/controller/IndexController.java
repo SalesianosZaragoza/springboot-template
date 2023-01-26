@@ -15,7 +15,7 @@ import com.example.demo.service.ServiceStudent;
 @Controller
 public class IndexController {
 	
-	Logger l = org.apache.logging.log4j.LogManager.getLogger();
+	Logger l = org.apache.logging.log4j.LogManager.getLogger(IndexController.class);
 
 	public ServiceUser serviceuser;
 
@@ -39,8 +39,9 @@ public class IndexController {
 	@PostMapping("addStudentForm")
 	public ModelAndView logStudentInfoAndSendToEndPage(@ModelAttribute("estudiante") Student student) {
 		serviceStudent.guardar(student);
-		l.info(student.toString());
+		l.debug(student.toString());
 		ModelAndView m = new ModelAndView("end");
+		
 		m.addObject("student", student);
 		return m;
 	}
