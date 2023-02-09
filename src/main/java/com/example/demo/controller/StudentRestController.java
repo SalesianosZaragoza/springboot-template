@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,7 @@ public class StudentRestController {
 	Logger l = org.apache.logging.log4j.LogManager.getLogger(IndexController.class);
 
 	@GetMapping
-	@RequestMapping(value = "/info")
+	@RequestMapping(value = "/info", produces = MediaType.TEXT_XML_VALUE)
 	public ResponseEntity<Student> showInfo() {
 		Student s = new Student();
 		s.setName("gorka");
