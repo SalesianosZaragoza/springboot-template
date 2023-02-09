@@ -52,11 +52,20 @@ public class StudentRestController {
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
 
-	@GetMapping(path = "/delete2/{id}")
-	public ResponseEntity<List<Student>> delete2(@PathVariable("id") int id) {
-		l.info("delete2:" + id);
+	@GetMapping("/delete2/{nombre}/{savePlace}")
+	public ResponseEntity<List<Student>> delete2(@PathVariable String nombre, @PathVariable String savePlace) {
+		l.info("Borrando a: " + nombre);
+		boolean removeIf = list.removeIf((s) -> s.getName().equals(nombre));
+		if (savePlace.equals("log")) {
+			l.info(l);
+		} else {
+			System.out.println(l);
+		}
+
 		// list.remove(id.intValue() - 1);
-		return new ResponseEntity<>(list, HttpStatus.OK);
+		if (removeIf)
+			return new ResponseEntity<>(list, HttpStatus.OK);
+		return new ResponseEntity<>(list, HttpStatus.NOT_FOUND);
 	}
 
 }
