@@ -21,7 +21,7 @@ import com.example.demo.model.Student;
 @RequestMapping("/api/")
 public class StudentRestController {
 	List<Student> list = new ArrayList<>();
-	Logger l = org.apache.logging.log4j.LogManager.getLogger(IndexController.class);
+	Logger l = org.apache.logging.log4j.LogManager.getLogger(StudentRestController.class);
 
 	@GetMapping
 	@RequestMapping(value = "/info", produces = MediaType.TEXT_XML_VALUE)
