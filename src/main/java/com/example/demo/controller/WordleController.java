@@ -49,9 +49,10 @@ public class WordleController {
 		wordsPlayed.add(wordToPlay);
 
 		String correctAnswer = game.getCorrectAnswer();
-		if (correctAnswer.length() != wordToPlay.length())
+		boolean wordsEqualsLenght = correctAnswer.length() == wordToPlay.length();
+		if (!wordsEqualsLenght)
 			info.setMessage("error en tamaño de jugada");
-		if (!correctAnswer.equals(wordToPlay)) {
+		else if (wordsEqualsLenght) {
 			info.setAnswer(game.testWorldlePlay(info, wordToPlay, correctAnswer));
 		} else {
 			pageToReturn = "fin";
